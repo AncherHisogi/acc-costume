@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0a0c11">
+<title>Costume &amp; Undies Stat Guide | ArcheAge Classic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c11;--panel:#11141b;--panel2:#161a23;--bd:#232938;--tx:#d9dce4;--mute:#8088a0;--gold:#d4a853;--blue:#5b9cf0;--green:#4ade80;--red:#ff7a70}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.65 Inter,system-ui,sans-serif;counter-reset:sec -1}
+a{color:var(--gold);text-decoration:none}
+.top{position:sticky;top:0;z-index:20;height:56px;display:flex;align-items:center;gap:14px;padding:0 20px;background:#0a0c11ee;backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.brand{font:700 .95rem Cinzel,serif;letter-spacing:.14em;color:var(--gold)}.brand small{font:500 .75rem Inter,sans-serif;color:var(--mute);letter-spacing:.04em;margin-left:6px}
+#menuBtn{display:none;margin-left:auto;background:var(--panel2);color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+.wrap{display:flex;max-width:1180px;margin:auto}
+.side{position:sticky;top:56px;align-self:flex-start;width:230px;height:calc(100vh - 56px);padding:28px 16px;border-right:1px solid var(--bd);flex-shrink:0}
+.side h4{margin:0 0 12px;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.side a{display:block;padding:8px 12px;border-radius:8px;color:var(--tx);font-size:.92rem;border-left:2px solid transparent}
+.side a:hover{background:var(--panel2);border-left-color:var(--gold)}
+main{flex:1;min-width:0;padding:36px 28px 60px}
+.eyebrow{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:700 clamp(1.8rem,4vw,2.7rem)/1.15 Cinzel,serif;margin:.3em 0 .3em}
+.lead{color:var(--mute);max-width:60ch;margin:0 0 28px}
+section{margin:0 0 34px;scroll-margin-top:70px}
+h2{font:700 1.45rem Cinzel,serif;margin:0 0 16px;display:flex;align-items:baseline;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--bd)}
+h2::before{counter-increment:sec;content:"0" counter(sec);font:600 .8rem Inter,sans-serif;color:var(--gold);letter-spacing:.1em}
+.tabs{display:flex;gap:8px;margin-bottom:18px}
+.tab{font:600 .9rem Inter,sans-serif;padding:9px 22px;border-radius:999px;border:1px solid var(--bd);background:var(--panel);color:var(--mute);cursor:pointer;transition:.15s}
+.tab:hover{color:var(--tx)}.tab.on{background:var(--gold);color:#14110a;border-color:var(--gold)}
+.panel{background:var(--panel);border:1px solid var(--bd);border-radius:14px;padding:20px}
+.dds{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.dd label{display:block;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+select{width:100%;padding:11px 12px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);font:inherit;cursor:pointer}
+select:focus{outline:2px solid var(--gold);outline-offset:1px}
+.note{margin-top:16px;padding:12px 16px;border-radius:10px;background:#5b9cf012;border:1px solid #5b9cf040;border-left:3px solid var(--blue);color:#c4d6f3;font-size:.92rem}
+.note b{color:var(--blue)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.g{background:var(--panel);border:1px solid var(--bd);border-top:3px solid var(--c);border-radius:12px;padding:14px}
+.g h3{margin:0 0 8px;font:700 .95rem Cinzel,serif;color:var(--c);display:flex;justify-content:space-between;align-items:center}
+.chip{font:600 .68rem Inter,sans-serif;letter-spacing:.06em;padding:2px 9px;border-radius:999px;background:#ffffff0d;border:1px solid var(--bd);color:var(--mute)}
+.r{display:flex;gap:10px;align-items:center;padding:7px 0;border-top:1px solid #ffffff0d;font-size:.93rem}
+.b{font-weight:700;font-size:.65rem;letter-spacing:.09em;text-transform:uppercase;padding:3px 8px;border-radius:6px;min-width:76px;text-align:center}
+.Keep{background:#4ade8020;color:var(--green)}.Roll{background:#ff7a7020;color:var(--red)}.Cont{background:#8088a022;color:var(--mute)}
+.u{margin-left:auto;font-size:.68rem;color:var(--mute)}
+.empty{text-align:center;color:var(--mute);padding:26px;border:1px dashed var(--bd);border-radius:12px}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;font-size:.85rem;color:var(--mute)}
+footer{color:var(--mute);font-size:.82rem;border-top:1px solid var(--bd);padding-top:16px}
+@media(max-width:860px){
+ #menuBtn{display:block}
+ .side{position:fixed;top:56px;left:0;z-index:15;background:var(--bg);transform:translateX(-100%);transition:.2s;height:calc(100vh - 56px)}
+ .nav-open .side{transform:none}
+ main{padding:24px 16px 50px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <span class="brand">✦ ARCHEAGE CLASSIC<small>/ Costume &amp; Undies</small></span>
+  <button id="menuBtn">☰ Menu</button>
+</header>
+<div class="wrap">
+<nav class="side">
+  <h4>Contents</h4>
+  <a href="#top">Overview</a>
+  <a href="#stats">Pick your stats</a>
+  <a href="#order">Build order</a>
+  <a href="#tips">Tips</a>
+</nav>
+<main id="top">
+  <div class="eyebrow">ArcheAge Classic · Stat Guide</div>
+  <h1>Costume &amp; Undies: when to roll, when to keep</h1>
+  <p class="lead">Choose your 5 stats and get the exact roll/keep plan for every grade. Don't just upgrade and hope for the best.</p>
+
+  <section id="stats">
+    <h2>Pick your stats</h2>
+    <div class="tabs"><button id="tab-costume" class="tab on">Costume</button><button id="tab-under" class="tab">Undergarments</button></div>
+    <div class="panel"><div class="dds" id="stats-dd"></div>
+    <div class="note"><b>Same-grade stats are interchangeable.</b> If two stats unlock at the same grade, don't reroll one for the other when you want both.</div></div>
+  </section>
+
+  <section id="order">
+    <h2>Build order: <span id="modeName" style="color:var(--gold)">Costume</span></h2>
+    <div class="legend"><span><span class="b Roll">Roll for</span> keep rolling until you hit it</span><span><span class="b Keep">Keep</span> don't touch</span><span><span class="b Cont">Continue</span> keep upgrading</span></div>
+    <div id="out" class="empty">Select your 5 stats above.</div>
+  </section>
+
+  <section id="tips">
+    <h2>Tips</h2>
+    <div class="panel">Use activity tokens to craft and upgrade Synthium stones, since they require fewer mats. Ask your guild which stats suit your class.</div>
+  </section>
+  <footer>Guild-made guide for RopePlay members.</footer>
+</main>
+</div>
+<script>
+// ---- DATA ----  G = unlocks at Grand, D = Divine, L = Legendary
+const GRADES=[
+ {n:"Grand/Rare",slots:1,c:"#5ad18a"},{n:"Arcane",slots:2,c:"#6aa8ff"},{n:"Heroic",slots:3,c:"#b27bff"},
+ {n:"Unique",slots:4,c:"#f0c14b"},{n:"Celestial",slots:4,c:"#4fd8e8"},{n:"Divine",slots:4,c:"#ff7ab6"},
+ {n:"Epic",slots:4,c:"#ff9a4d"},{n:"Legendary",slots:5,c:"#ffd84d"}
+];
+const U={G:"Grand",D:"Divine",L:"Legendary"};
+const parse=t=>t.trim().split("\n").map(l=>{const [name,u,val]=l.split("|");return{name:name.trim(),unlock:U[u.trim()],val:(val||"").trim()}});
+const MODES={
+costume:{grades:GRADES,stats:parse(`
+Backstab Melee Damage|G|7.5%
+Received Damage|G|3.2%
+Received Magic Damage|D|2.8%
+Melee Critical Damage|D|10.5%
+Melee Critical Rate|L|4.6%
+Physical Defense|G
+Magic Defense|G
+Max Health|G
+Move Speed|G
+Stealth Detection|G
+PvE Magic Skills|G
+PvE Melee Skills|G
+PvE Ranged Skills|G
+Backstab Magic Damage|G
+Backstab Ranged Damage|G
+Melee Attack|G
+Ranged Attack|G
+Magic Attack|G
+Healing Power|G
+PvE Damage Reduction|G
+Received Healing|G
+Cast Time|G
+Evasion|G
+Parry Rate|G
+Shield Block Rate|G
+Resilience|G
+Toughness|G
+Focus|G
+Defense Penetration|G
+Magic Defense Penetration|G
+Received Melee Damage|D
+Received Ranged Damage|D
+Magic Critical Damage|D
+Ranged Critical Damage|D
+Critical Heal Bonus|D
+Melee Skill Damage|G
+Magic Skill Damage|G
+Ranged Skill Damage|G
+Healing|G
+Magic Critical Rate|L
+Ranged Critical Rate|L
+Critical Heal Rate|L`)},
+under:{grades:GRADES,stats:parse(`
+Physical Defense|G
+Max Health|G
+Melee Attack|G
+Ranged Attack|G
+Magic Attack|G
+Backstab Melee Damage|G
+Backstab Magic Damage|G
+Backstab Ranged Damage|G
+Resilience|G
+Toughness|G
+Focus|G
+Defense Penetration|G
+Magic Defense Penetration|G
+Received Ranged Damage|D
+Shield Defense Penetration Rate|G
+Melee Skill Damage|G
+Ranged Skill Damage|G
+Healing|G
+Melee Critical Rate|L
+Magic Critical Rate|L
+Ranged Critical Rate|L
+Critical Heal Rate|L`)}
+};
+// --------------
+const ORDER={Grand:0,Divine:5,Legendary:7};
+const rank=u=>ORDER[u]??0;
+const $=id=>document.getElementById(id);
+let mode="costume";const sel={costume:["","","","",""],under:["","","","",""]};
+
+function renderStats(){
+  const st=MODES[mode].stats,S=sel[mode];$("stats-dd").innerHTML="";
+  for(let i=0;i<5;i++){
+    const d=document.createElement("div");d.className="dd";
+    d.innerHTML=`<label>Stat ${i+1}</label>`;
+    const sl=document.createElement("select");
+    sl.innerHTML=`<option value="">Select a stat...</option>`+st.filter(x=>x.name==S[i]||!S.includes(x.name)).map(x=>`<option value="${x.name}"${x.name==S[i]?" selected":""}>${x.name}</option>`).join("");
+    sl.onchange=()=>{S[i]=sl.value;all()};
+    d.append(sl);$("stats-dd").append(d);
+  }
+}
+function renderOut(){
+  const {grades}=MODES[mode];
+  const picked=MODES[mode].stats.filter(s=>sel[mode].includes(s.name)).sort((a,b)=>rank(a.unlock)-rank(b.unlock));
+  if(!picked.length){$("out").className="empty";$("out").textContent="Select your 5 stats above.";return}
+  $("out").className="";
+  let html='<div class="grid">';
+  grades.forEach((g,gi)=>{
+    const prev=gi?grades[gi-1]:null;
+    html+=`<div class="g" style="--c:${g.c}"><h3>${g.n}<small>${g.slots} stat${g.slots>1?"s":""}</small></h3>`;
+    for(let i=0;i<g.slots;i++){
+      const w=picked[i];let a,t,u="";
+      if(!w){a="Cont";t="Any / don't care"}
+      else if(rank(w.unlock)>gi){a="Cont";t="Continue upgrading"}
+      else{a=(prev&&i<prev.slots&&rank(w.unlock)<=gi-1)?"Keep":"Roll";t=w.name;u=w.unlock}
+      html+=`<div class="r"><span class="b ${a}">${a=="Cont"?"Continue":a=="Roll"?"Roll for":"Keep"}</span><span>${t}</span><span class="u">${u}</span></div>`;
+    }
+    html+="</div>";
+  });
+  $("out").innerHTML=html+"</div>";
+}
+function all(){renderStats();renderOut()}
+function setMode(m){mode=m;$("tab-costume").classList.toggle("on",m=="costume");$("tab-under").classList.toggle("on",m=="under");$("modeName").textContent=m=="costume"?"Costume":"Undergarments";all()}
+$("tab-costume").onclick=()=>setMode("costume");$("tab-under").onclick=()=>setMode("under");
+$("menuBtn").onclick=()=>document.body.classList.toggle("nav-open");
+document.querySelectorAll(".side a").forEach(a=>a.onclick=()=>document.body.classList.remove("nav-open"));
+all();
+</script>
+</body>
+</html>
